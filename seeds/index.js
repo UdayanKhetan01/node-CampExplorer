@@ -21,7 +21,7 @@ const sample = array => array[Math.floor(Math.random() * array.length)];
 
 const seedDB = async () => {
     await Campground.deleteMany({});
-    for (let i = 0; i < 300; i++) {
+    for (let i = 0; i < 100; i++) {
         const random1000 = Math.floor(Math.random() * 150);
         const price = Math.floor(Math.random() * 20) + 10;
         const camp = new Campground({
@@ -40,13 +40,15 @@ const seedDB = async () => {
             },
             images: [
                 {
-                    url: 'https://res.cloudinary.com/di4wby52k/image/upload/v1689963572/CampExplorer/gebtuiyoejhuqo5p88vm.png',
-                    filename: 'CampExplorer/gebtuiyoejhuqo5p88vm'
-                },
-                {
-                    url: 'https://res.cloudinary.com/di4wby52k/image/upload/v1689963573/CampExplorer/fogyyjfq4bvazqx15ppv.png',
-                    filename: 'CampExplorer/fogyyjfq4bvazqx15ppv'
+                    // url: 'https://res.cloudinary.com/di4wby52k/image/upload/v1689963572/CampExplorer/gebtuiyoejhuqo5p88vm.png',
+                    // filename: 'CampExplorer/gebtuiyoejhuqo5p88vm'
+                    url: cities[random1000].url,
+                    filename: cities[random1000].filename
                 }
+                // {
+                //     url: 'https://res.cloudinary.com/di4wby52k/image/upload/v1689963573/CampExplorer/fogyyjfq4bvazqx15ppv.png',
+                //     filename: 'CampExplorer/fogyyjfq4bvazqx15ppv'
+                // }
             ]
         })
         await camp.save();
@@ -56,3 +58,8 @@ const seedDB = async () => {
 seedDB().then(() => {
     mongoose.connection.close();
 })
+
+
+
+
+
