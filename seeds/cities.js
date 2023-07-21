@@ -56,7 +56,7 @@ module.exports = [
         state: "Gujarat"
     },
     {
-        city: "SÅ«rat",
+        city: "Surat",
         latitude: "21.1702",
         longitude: "72.8311",
         rank: "9",
